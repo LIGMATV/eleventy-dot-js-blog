@@ -21,8 +21,10 @@ export var data = {
     alias: 'posts',
     reverse: true,
   },
-  eleventyComputed: {
-    permalink: data => `${data.site[data.locale].postsArchive.url}/index.html`
+ eleventyComputed: {
+  permalink: data => `${data.site[data.locale].postsArchive.url }/${data.pagination.pageNumber > 0
+    ? `page-${data.pagination.pageNumber}/` 
+    : ''}index.html`
   }
 }
 
